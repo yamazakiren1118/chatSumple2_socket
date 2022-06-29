@@ -2,10 +2,18 @@
 var server = require('http').createServer(head);
 // ファイルを扱うためのモジュールを読み込み
 var html = require('fs').readFileSync('index.html');
+
+// 起動するサーバーのポート番号
+// or演算子を使うことでherokuのアドレスがあった時はherokuのアドレスが代入される
+var port = process.env.PORT || 3000;
+
+// 通信する外部アプリのURL、別途環境変数に設定する
+var url = process.env.LARAVEL_URL || "http://127.0.0.1:8000";
+
 // socket.ioを読み込み
 var io = require('socket.io')(server,{
   cors:{
-    origin: ["http://127.0.0.1:8000"],
+    origin: ["http://localhost:8000", url],
     methods: ["GET", "POST", "DELETE", "OPTIONS"]
   }
 });
@@ -19,8 +27,8 @@ function head(req, res){
 }
 
 
-// サーバーを3000ポートで起動する
-server.listen(3000);
+// サーバーをローカルなら3000ポート、herokuならその時のポートで起動する
+server.listen(port);
 
 // ユーザー情報を保存する変数
 var users = new Object();
