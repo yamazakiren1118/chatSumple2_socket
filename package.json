@@ -1,0 +1,24 @@
+{
+  "name": "chatsumple2_socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "nodemon": "^2.0.16",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamazakiren1118/chatSumple2_socket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yamazakiren1118/chatSumple2_socket/issues"
+  },
+  "homepage": "https://github.com/yamazakiren1118/chatSumple2_socket#readme"
+}
