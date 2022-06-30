@@ -88,7 +88,7 @@ io.on('connection', function(socket){
         socket_id.push(key);
       }
     }
-    io.to(socket_id).emit('push', {room_id: data.room_id, user_id: data.user_id});
+    io.to(socket_id).emit('push', {room_id: data.room_id, user_id: data.user_id, room_type: socket.room_type});
   });
 });
 
