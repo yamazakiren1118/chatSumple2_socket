@@ -63,7 +63,7 @@ io.on('connection', function(socket){
   socket.on('create', function(data){
     // io.to(`c_${data.room_id}`).emit('create', {id: data.id});
     console.log('create socket ok' + `${socket.room_type}_${socket.room}`);
-    io.to(`${socket.room_type}_${socket.room}`).emit('create', {id: data.id});
+    io.to(`${socket.room_type}_${socket.room}`).emit('create', {id: data.id, last_message_id: data.last_message_id});
 
   });
 
